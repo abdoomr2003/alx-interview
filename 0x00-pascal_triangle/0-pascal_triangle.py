@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+Module 0-pascal_triangle.py
+In this function it will generate pascal triangle
+"""
+
+
 def pascal_triangle(n):
     """
     Generate Pascal's Triangle up to n rows.
