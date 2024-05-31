@@ -1,31 +1,34 @@
-#!/usr/bin/env python3
-"""
-Module 0-pascal_triangle.py
-In this function it will generate pascal triangle
-"""
+#!/usr/bin/python3
+""" Module for Pascal's triangle """
 
 
 def pascal_triangle(n):
     """
-    Generate Pascal's Triangle up to n rows.
-
-    :param n: Number of rows in Pascal's Triangle
-    :type n: int
-    :return: List of lists representing Pascal's Triangle
-    :rtype: list
+    Returns a list of lists of integers representing
+    the Pascal’s triangle of n.
     """
+
     if n <= 0:
         return []
-    triangle = [[1]]  # Start with the first row
-    for i in range(1, n):
-        # Start each row with '1'
-        row = [1]
-        # Generate the middle values
-        k = i-1
-        row.extend([triangle[k][j-1] + triangle[k][j] for j in range(1, i)])
-        # End each row with '1'
-        row.append(1)
-        # Append the generated row to the triangle
-        triangle.append(row)
 
-    return triangle
+    RLIST = []
+    lst = []
+    for i in range(n):
+        if len(lst) == 0:
+            lst.append(1)
+            RLIST.append([1])
+        elif len(lst) == 1:
+            lst.append(1)
+            RLIST.append([1, 1])
+        else:
+            ndlst = []
+            x = 0
+            while x < len(lst):
+                if x + 1 != len(lst):
+                    ndlst.append(lst[x] + lst[x + 1])
+                x += 1
+            lst = [1]
+            lst.extend(ndlst)
+            lst.append(1)
+            RLIST.append(lst)
+    return RLIST
