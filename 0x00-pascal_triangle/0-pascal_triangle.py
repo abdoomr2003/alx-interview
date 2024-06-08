@@ -1,34 +1,35 @@
 #!/usr/bin/python3
-""" Module for Pascal's triangle """
+"""
+This module contains a function to generate Pascal's Triangle up to
+a given number of rows.
+"""
+
+from typing import List
 
 
-def pascal_triangle(n):
+def pascal_triangle(n: int) -> List[List[int]]:
     """
-    Returns a list of lists of integers representing
-    the Pascal’s triangle of n.
-    """
+    Generate Pascal's Triangle up to n rows.
 
+    Args:
+        n (int): The number of rows of Pascal's Triangle to generate.
+
+    Returns:
+        List[List[int]]: A list of lists of integers representing
+        Pascal's Triangle.
+    """
     if n <= 0:
         return []
-
-    RLIST = []
-    lst = []
-    for i in range(n):
-        if len(lst) == 0:
-            lst.append(1)
-            RLIST.append([1])
-        elif len(lst) == 1:
-            lst.append(1)
-            RLIST.append([1, 1])
-        else:
-            ndlst = []
-            x = 0
-            while x < len(lst):
-                if x + 1 != len(lst):
-                    ndlst.append(lst[x] + lst[x + 1])
-                x += 1
-            lst = [1]
-            lst.extend(ndlst)
-            lst.append(1)
-            RLIST.append(lst)
-    return RLIST
+    if n == 1:
+        return [[1]]
+    fList = [[1], [1, 1]]
+    for i in range(n-2):
+        appendList = fList[-1]
+        listFromAppendList: List = [1]
+        j = 1
+        while j <= (len(appendList) - 1):
+            listFromAppendList.append(appendList[j] + appendList[j-1])
+            j += 1
+        listFromAppendList.append(1)
+        fList.append(listFromAppendList)
+    return fList
