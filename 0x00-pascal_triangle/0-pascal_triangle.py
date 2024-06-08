@@ -4,10 +4,8 @@ This module contains a function to generate Pascal's Triangle up to
 a given number of rows.
 """
 
-from typing import List
 
-
-def pascal_triangle(n: int) -> List[List[int]]:
+def pascal_triangle(n):
     """
     Generate Pascal's Triangle up to n rows.
 
@@ -25,7 +23,7 @@ def pascal_triangle(n: int) -> List[List[int]]:
     fList = [[1], [1, 1]]
     for i in range(n-2):
         appendList = fList[-1]
-        listFromAppendList: List = [1]
+        listFromAppendList = [1]
         j = 1
         while j <= (len(appendList) - 1):
             listFromAppendList.append(appendList[j] + appendList[j-1])

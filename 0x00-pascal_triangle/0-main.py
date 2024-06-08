@@ -5,12 +5,11 @@ Module 0-main
 This module imports the pascal_triangle function and uses it to generate and
 print Pascal's Triangle.
 """
-from typing import List
 
 pascal_triangle = __import__('0-pascal_triangle').pascal_triangle
 
 
-def print_triangle(triangle: List[List[int]]) -> None:
+def print_triangle(triangle):
     """
     Print Pascal's Triangle.
 
@@ -23,5 +22,5 @@ def print_triangle(triangle: List[List[int]]) -> None:
 
 
 if __name__ == "__main__":
-    usrInput: int = int(input("give me number of rows: "))
+    usrInput= int(input("give me number of rows: "))
     print_triangle(pascal_triangle(usrInput))
