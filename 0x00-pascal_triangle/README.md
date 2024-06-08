@@ -16,11 +16,11 @@ The `pascal_triangle` function takes an integer `n` as input and returns a list 
 #### Example
 
 ```pash
-root@Abdelrahman-Atef:~/alx-interview/0x00-pascal_triangle# ./0-main.py
+$ ./0-main.py
 give me number of rows: 2
 [1]
 [1,1]
-root@Abdelrahman-Atef:~/alx-interview/0x00-pascal_triangle# ./0-main.py
+$ ./0-main.py
 give me number of rows: 5
 [1]
 [1,1]
